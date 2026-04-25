@@ -1,0 +1,64 @@
+/* Reset simple */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corps */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffffff, #f5f5f5);
+    color: #333;
+    padding: 20px;
+}
+
+/* Sections */
+section {
+    display: none;
+    background: #ffffff;
+    border: 2px solid #d4af37; /* doré */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+section.active {
+    display: block;
+}
+
+/* Titres */
+h2 {
+    color: #d4af37;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Texte */
+p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+/* Images */
+
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* Bouton WhatsApp */
+.whatsapp-btn img {
+    width: 60px;
+    border: none;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+/* Mise en valeur */
+strong {
+    color: #444;
+}
