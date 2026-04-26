@@ -13,7 +13,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background: url("background.jpg") no-repeat center center/cover;
+    background: url("Actualité _ Bon plan – L'ordinateur Portable Apple MacBook Air 13 pouces (M3) 16 Go _ 256 Go _4 étoi.jpg") no-repeat center center/cover;
 }
 
 /* OVERLAY (assombrit l'image pour lisibilité) */
@@ -60,7 +60,7 @@ body::before{
     border-radius:8px;
     outline:none;
     background: rgba(255,255,255,0.15);
-    color:white;
+    color:rgb(3, 3, 3);
 }
 
 /* PLACEHOLDER */
@@ -81,7 +81,7 @@ button{
     padding:12px;
     border:none;
     border-radius:8px;
-    background: linear-gradient(45deg, #d4af37, gold);
+    background: linear-gradient(45deg, #dfd4b1, gold);
     color:black;
     font-weight:bold;
     cursor:pointer;

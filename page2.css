@@ -1,154 +1,99 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
-body{
-  background: linear-gradient(135deg, #d8d8c6, #e3bb19e6);
-    
+body {
+    background: linear-gradient(135deg, #d8d8c6, #e3bb19e6);
 }
 
-/* HEADER */
-.header{
-    text-align:center;
-    padding:20px;
-}
-
-.logo{
-    width:300px;
-}
-
-/* NAV */
-nav{
-   background: linear-gradient(135deg, #ebebdd, #e3bb19e6);
-    padding:10px;
-}
-
-nav ul{
-    display:flex;
-    justify-content:center;
-    list-style:none;
-}
-
-nav ul li{
-    margin:10px;
-}
-
-nav ul li a{
-    color:white;
-    text-decoration:none;
-    padding:10px;
-    transition:0.3s;
-}
-
-nav ul li a:hover{
-   background: linear-gradient(135deg, #ebebdd, #e3bb19e6);
-    color:black;
-    border-radius:5px;
+/* HERO */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
 }
 
 /* SLIDER */
-.slider{
-    height:300px;
-    position:relative;
-    overflow:hidden;
+.slider {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
 }
 
-.slide{
-    position:absolute;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    opacity:0;
-    transition:2s;
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
 }
 
-.slide.active{
-    opacity:1;
+.slide.active {
+    opacity: 1;
+    z-index: 1;
 }
 
-/* SECTIONS */
-section{
-    padding:40px;
+/* OVERLAY */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
 }
 
-/* GRID */
-.grid{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap:20px;
-    margin-top:20px;
+/* TOPBAR */
+.topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    z-index: 2;
 }
 
-/* CARD */
-.card{
+/* LOGO */
+.logo {
+    width: clamp(140px, 10vw, 160px);
+    height: clamp(140px, 10vw, 160px);
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: -20px;
+}
+
+/* NAVIGATION */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 18px;
+    flex-wrap: nowrap;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: 0.3s;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+nav ul li a:hover,
+nav ul li a.active-link {
     background: linear-gradient(135deg, #ebebdd, #e3bb19e6);
-    padding:15px;
-    border-radius:10px;
-    text-align:center;
-    transition:0.3s;
+    color: black;
+    border-radius: 5px;
 }
 
-.card img{
-    width:100%;
-    border-radius:10px;
-}
-
-.card:hover{
-    transform:scale(1.05);
-}
-
-/* WHATSAPP */
-.whatsapp{
-    width:50px;
-    margin:10px;
-}
-
-/* COMMENTAIRES */
-.comment-form{
-    display:flex;
-    flex-direction:column;
-    max-width:400px;
-    margin:auto;
-}
-
-.comment-form input,
-.comment-form textarea{
-    margin:10px 0;
-    padding:10px;
-    border:none;
-    border-radius:5px;
-}
-
-.comment-form button{
-    padding:10px;
-    background:#d4af37;
-    border:none;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.comment-form button:hover{
-    background:gold;
-}
-
-.comment{
-    background:#1e293b;
-    padding:10px;
-    margin:10px;
-    border-radius:5px;
-}
-
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:20px;
-    background:#020617;
-}
-
-
+/* SECTIONS — cachées par défaut, visibles si .active */
 section {
     max-width: 900px;
     width: 90%;
@@ -156,33 +101,113 @@ section {
     background: rgb(247, 238, 221);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    animation: fadeUp 0.8s ease;
-    transition: 0.3s;
-    display: none; /* toutes cachées par défaut */
-}
-
-section.active {
-    display: block; /* seule la section active apparaît */
-}
-
-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
-}
-
-section h2 {
-    color: #1e3c72;
-    border-left: 5px solid #1e3c72;
-    padding-left: 10px;
-    margin-bottom: 15px;
-}
-
-
-section {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     display: none;
 }
 
 section.active {
     display: block;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* CARD */
+.card {
+    background: linear-gradient(135deg, #ebebdd, #e3bb19e6);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* WHATSAPP */
+.whatsapp {
+    width: 50px;
+    margin: 10px;
+}
+
+/* COMMENTAIRES */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+}
+
+.comment-form input,
+.comment-form textarea {
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.comment-form button {
+    padding: 10px;
+    background: #d4af37;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.comment-form button:hover {
+    background: gold;
+}
+
+.comment {
+    background: #1e293b;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+    color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .topbar {
+        padding: 10px 15px;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        gap: 6px;
+    }
+
+    nav ul li a {
+        font-size: 10px;
+        padding: 4px 6px;
+    }
 }
