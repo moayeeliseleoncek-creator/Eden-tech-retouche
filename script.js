@@ -1,44 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // NAVIGATION
-    const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('nav-links');
-    const links = document.querySelectorAll("nav a");
-    const sections = document.querySelectorAll(".section");
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
 
-    if (toggle && nav) {
-        toggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-    }
+    // Afficher accueil au chargement SANS aucun défilement
+    document.getElementById("accueil").classList.add("active");
+    document.querySelector('nav a[href="#accueil"]').classList.add("active-link");
 
-    links.forEach(link => {
+    navLinks.forEach(link => {
         link.addEventListener("click", (e) => {
-            e.preventDefault();
+            const href = link.getAttribute("href");
+            if (href && href.startsWith("#")) {
+                e.preventDefault();
 
-            const targetId = link.getAttribute("href").substring(1);
+                sections.forEach(sec => sec.classList.remove("active"));
+                navLinks.forEach(l => l.classList.remove("active-link"));
 
-            sections.forEach(section => {
-                section.classList.remove("active");
-            });
+                const target = document.getElementById(href.replace("#", ""));
+                if (target) {
+                    target.classList.add("active");
+                    setTimeout(() => {
+                        target.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }, 50);
+                }
 
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) targetSection.classList.add("active");
-
-            nav.classList.remove("active");
+                link.classList.add("active-link");
+            }
         });
     });
 
     // SLIDER
     let index = 0;
     const slides = document.querySelectorAll(".slide");
-
-    if (slides.length > 0) {
+    if (slides.length) {
         setInterval(() => {
             slides[index].classList.remove("active");
             index = (index + 1) % slides.length;
             slides[index].classList.add("active");
-        }, 2000);
+        }, 5000);
     }
 
 });

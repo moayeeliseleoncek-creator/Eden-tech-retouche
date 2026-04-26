@@ -49,7 +49,7 @@ body {
 
 /* TOPBAR */
 .topbar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -57,13 +57,15 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    z-index: 2;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(3px);
 }
 
 /* LOGO */
 .logo {
-    width: clamp(140px, 10vw, 160px);
-    height: clamp(140px, 10vw, 160px);
+    width: clamp(55px, 10vw, 160px);
+    height: clamp(55px, 10vw, 160px);
     border-radius: 50%;
     object-fit: cover;
     margin-left: -20px;
