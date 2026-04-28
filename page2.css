@@ -137,11 +137,7 @@ section.active {
     transform: scale(1.05);
 }
 
-/* WHATSAPP */
-.whatsapp {
-    width: 50px;
-    margin: 10px;
-}
+
 
 /* COMMENTAIRES */
 .comment-form {
@@ -212,4 +208,50 @@ footer {
         font-size: 10px;
         padding: 4px 6px;
     }
+}
+/* ===== CONTACT ===== */
+.contact-section {
+    max-width: 600px;
+    margin: 20px auto 50px;
+    background: rgb(247, 238, 221);
+    border-radius: 14px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.contact-section h2 {
+    color: #b8860b;
+    margin-bottom: 16px;
+    font-size: 22px;
+}
+
+.contact-section p {
+    margin: 8px 0;
+    font-size: 15px;
+    color: #444;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    padding: 12px 24px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background: #1ebe5b;
+    transform: scale(1.05);
+}
+
+.whatsapp-btn img {
+    width: 28px;
 }

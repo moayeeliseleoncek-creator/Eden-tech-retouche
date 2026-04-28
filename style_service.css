@@ -1,64 +1,206 @@
-/* Reset simple */
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
-/* Corps */
+/* ===== BODY ===== */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ffffff, #d4af37);
+    background: linear-gradient(135deg, #d8d8c6, #e3bb19e6);
     color: #333;
-    padding: 20px;
+    min-height: 100vh;
 }
 
-/* Sections */
-section {
-    display: none;
-    background: #ffffff;
-    border: 2px solid #d4af37; /* doré */
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
+/* ===== NAVBAR ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    z-index: 999;
 }
 
-section.active {
-    display: block;
+.nav-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-/* Titres */
-h2 {
-    color: #d4af37;
-    margin-bottom: 15px;
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 14px;
+    border-radius: 5px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active-link {
+    background: linear-gradient(135deg, #ebebdd, #e3bb19e6);
+    color: black;
+}
+
+/* ===== HERO ===== */
+.hero-service {
+    margin-top: 85px;
     text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(212,175,55,0.4));
+    color: white;
 }
 
-/* Texte */
-p {
-    margin: 10px 0;
-    line-height: 1.6;
+.hero-service h1 {
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
-/* Images */
+.hero-service p {
+    font-size: clamp(14px, 2vw, 18px);
+    opacity: 0.9;
+}
 
+/* ===== GRILLE DE SERVICES ===== */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
 
-img:hover {
+/* ===== CARTE DE SERVICE ===== */
+.service-card {
+    background: rgb(247, 238, 221);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0,0,0,0.15);
+}
+
+.service-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.service-icon {
+    font-size: 32px;
+}
+
+.service-header h2 {
+    font-size: clamp(15px, 2vw, 18px);
+    color: #b8860b;
+    font-weight: 700;
+    text-align: left;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.7;
+}
+
+.slogan {
+    font-weight: bold;
+    color: #d4af37 !important;
+    font-size: 13px !important;
+}
+
+/* ===== SLIDER CSS ===== */
+.slider-box {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 180px;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    gap: 10px;
+    animation: scroll-left 10s linear infinite;
+    width: max-content;
+}
+
+.slides img {
+    height: 180px;
+    width: auto;
+    max-width: 260px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+.slides img:hover {
     transform: scale(1.05);
 }
 
-/* Bouton WhatsApp */
-.whatsapp-btn img {
-    width: 60px;
-    border: none;
+@keyframes scroll-left {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-.whatsapp-btn {
-    display: inline-block;
-    margin: 10px 0;
+
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+    color: #d4af37;
+    font-size: 13px;
 }
 
-/* Mise en valeur */
-strong {
-    color: #444;
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .navbar ul {
+        gap: 10px;
+    }
+
+    .navbar ul li a {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-service {
+        padding: 50px 15px 30px;
+    }
 }
